@@ -5,6 +5,7 @@ target/
 *.iml
 tools/sbt/lib/local-preloaded/
 
+*.out
 # Scratch directories
 harness-*/
 launcher-*/

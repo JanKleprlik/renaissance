@@ -93,13 +93,13 @@ trait PiUtilities{
 @Licenses(Array(License.MIT))
 @Repetitions(20)
 final class ScalaPi extends Benchmark with PiUtilities {
-    private var CorrectPiDigits = new Array[Int](1001)
-    private val PiDigits: Int = 1000
+    private val PiDigits: Int = 100000
+    private var CorrectPiDigits = new Array[Int](PiDigits + 1)
     override def setUpBeforeAll(c: BenchmarkContext): Unit = {
-        val source = io.Source.fromFile("./PiDigits.in")
+        val source = io.Source.fromFile("./PiDigits_large.in")
         var idx: Int = 0
         for (char <- source) {
-            if (idx <= 1000){
+            if (idx <= PiDigits){
                 CorrectPiDigits(idx) = char.toInt - 48 //-48 to get num from ascii
             }
             idx = idx + 1
